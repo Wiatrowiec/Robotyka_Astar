@@ -1,5 +1,4 @@
 from math import sqrt
-import numpy as np
 class Node():
 
     def __init__(self, parent=None, position=None):
@@ -15,8 +14,6 @@ def heuro(a, b):
 
 def path(current_node,marx):
     pathx=[]
-    no_rows, no_columns = np.shape(marx)
-
     current = current_node
     while current is not None:
         pathx.append(current.position)
@@ -86,8 +83,7 @@ def main():
     print(" ")
     start_maze = (0, 19)
     end_maze = (19, 0)
-    map_complete = astar(marx_com, start_maze, end_maze)
-    no_rows, no_columns = np.shape(marx)
+    map_complete = astar(marx_com, start_maze, end_maze)    
     if map_complete == 0:
         print("Nie udalo sie dostac do celu")
     else:
