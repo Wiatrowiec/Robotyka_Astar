@@ -9,9 +9,6 @@ class Node():
     def __eq__(self, other):
         return self.position == other.position
 
-def heuro(a, b):
-    return sqrt(((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2))
-
 def path(current_node,marx):
 
 
