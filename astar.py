@@ -27,6 +27,7 @@ def astar(marx, start, end):
     start_node.g = start_node.h = start_node.f = 0
     end_node = Node(None, end)
     end_node.g = end_node.h = end_node.f = 0
+    cost_move = 1
     open_list = [start_node]
     closed_list = []
     moves = [[-1, 0], [0, -1], [0, 1], [1, 0]]
@@ -57,8 +58,8 @@ def astar(marx, start, end):
             for closed_child in closed_list:
                 if dziedzic == closed_child:
                     continue
-            dziedzic.g = current_node.g + 1
-            dziedzic.h = ((dziedzic.position[0] - end_node.position[0]) ** 2) + ((dziedzic.position[1] - end_node.position[1]) ** 2)
+            dziedzic.g = current_node.g + cost_move
+            dziedzic.h = heuro(dziedzic.position, end_node.position)
             dziedzic.f = dziedzic.g + dziedzic.h
             for open_node in open_list:
                 if dziedzic == open_node and dziedzic.g > open_node.g:
