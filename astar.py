@@ -9,8 +9,6 @@ class Node():
     def __eq__(self, other):
         return self.position == other.position
 
-def heuro(a, b):
-    return sqrt(((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2))
 
 def path(current_node,marx):
 
@@ -66,7 +64,7 @@ def astar(marx, start, end):
                 if dziedzic == closed_child:
                     continue
             dziedzic.g = current_node.g + cost_move
-            dziedzic.h = abs((((dziedzic.position[0] - end_node.position[0]) ** 2) + ((dziedzic.position[1] - end_node.position[1]) ** 2)))
+            dziedzic.h = (((dziedzic.position[0] - end_node.position[0]) ** 2) + ((dziedzic.position[1] - end_node.position[1]) ** 2))
             dziedzic.f = dziedzic.g + dziedzic.h
             for otwarty in open_list:
                 if dziedzic == otwarty and dziedzic.g > otwarty.g:
